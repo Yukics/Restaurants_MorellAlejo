@@ -1,7 +1,7 @@
 <?php
     //Import classes and functions
-    require_once("restaurantClass.php");
-    require_once("getRestaurants.php");
+    require_once("class/restaurantClass.php");
+    require_once("lib/getRestaurants.php");
 
     //Import components
     require_once("components/header.php");
