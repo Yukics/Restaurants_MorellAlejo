@@ -1,0 +1,11 @@
+version: "3.8"
+services:
+    www: 
+        build: .
+        ports:
+            - 8085:80
+        volumes:
+            - ./web:/var/www/html
+    db:
+        image: mariadb:latest
+        
