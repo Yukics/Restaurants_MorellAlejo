@@ -1,5 +1,5 @@
 <?php
-    require_once("../class/restaurantClass.php");
+    require_once __DIR__.'/../class/restaurantClass.php';
 
     //This function is supposed to get the top 5 restaurants and return it as an array of array(key=>value)
     function getRestaurants(){
@@ -49,7 +49,7 @@
         foreach ($restaurants as &$rest_item) {
             array_push($obj_arr_rest, new Restaurant($rest_item["name"],$rest_item["address"],$rest_item["phone"],$rest_item["description"],$rest_item["pic"]));
         }
-        return $restaurants;
+        return $obj_arr_rest;
     }
 
 ?>

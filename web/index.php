@@ -9,6 +9,7 @@
     require_once("components/footer.php");
 
     //Gets the array of objects\restaurants
+    $obj_arr_rest = array();
     $obj_arr_rest = getRestaurants();
 ?>
 
