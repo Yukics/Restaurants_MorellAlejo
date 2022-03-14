@@ -8,16 +8,8 @@
     require_once("components/navbar.php");
     require_once("components/footer.php");
 
-    //Gets restaurants list from the ddbb
-    $rest_list = getRestaurants();
-
-    //Initiates the array of objects\restaurants
-    $obj_arr_rest = array();
-
-    //Creates restaurant objects and adds it to the array
-    foreach ($rest_list as &$rest_item) {
-        array_push($obj_arr_rest, new Restaurant($rest_item["name"],$rest_item["address"],$rest_item["phone"],$rest_item["description"],$rest_item["pic"]));
-    }
+    //Gets the array of objects\restaurants
+    $obj_arr_rest = getRestaurants();
 ?>
 
 <!doctype html>

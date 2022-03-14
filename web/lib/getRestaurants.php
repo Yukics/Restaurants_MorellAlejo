@@ -1,4 +1,5 @@
 <?php
+    require_once("../class/restaurantClass.php");
 
     //This function is supposed to get the top 5 restaurants and return it as an array of array(key=>value)
     function getRestaurants(){
@@ -40,6 +41,14 @@
                 "pic"=>"https://media-cdn.tripadvisor.com/media/photo-p/1b/d4/05/f6/genovese-pesto-de-albahaca.jpg"
             ]
         );
+
+        //Initiates the array of objects\restaurants
+        $obj_arr_rest = array();
+
+        //Creates restaurant objects and adds it to the array
+        foreach ($restaurants as &$rest_item) {
+            array_push($obj_arr_rest, new Restaurant($rest_item["name"],$rest_item["address"],$rest_item["phone"],$rest_item["description"],$rest_item["pic"]));
+        }
         return $restaurants;
     }
 
