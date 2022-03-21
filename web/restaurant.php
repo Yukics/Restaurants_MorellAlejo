@@ -1,6 +1,6 @@
 <?php
     //Import classes and functions
-    require_once("class/restaurantClass.php");
+    // require_once("class/restaurantClass.php");
     require_once("lib/getRestaurants.php");
 
     //Import components
@@ -8,15 +8,8 @@
     require_once("components/navbar.php");
     require_once("components/footer.php");
 
-
-    function console_log( $data ){
-        echo '<script>';
-        echo 'console.log('. json_encode( $data ) .')';
-        echo '</script>';
-    }
-
-    //Gets the array of objects\restaurants
-    $obj_arr_rest = getRestaurants();
+    //Gets the array of object\restaurants
+    $obj_arr_rest = getRestaurant(urldecode($_GET["name"]));
 ?>
 
 <!doctype html>
@@ -39,21 +32,17 @@
         <?php echo(printHeader()); ?>
         <?php echo(printNavbar()); ?>
 
-        
-        
-        <div class="card-deck">
+        <br></br>
             <?php foreach($obj_arr_rest as &$rest_obj): ?>
-                <div class="card">
-                    <img class="card-img-top img-fluid" src="<?= $rest_obj->pic ?>" alt="Card image cap" style="height:60%; overflow: hidden;">
-                    <div class="card-body">
-                    <h5 class="card-title"><a href="/restaurant.php?name=<?= urlencode($rest_obj->name) ?>"><?= $rest_obj->name ?></a></h5>
-                        <p class="card-text"><?= $rest_obj->description ?></p>
-                        <p class="card-text"><?= $rest_obj->address ?></p>
-                        <p class="card-text"><?= $rest_obj->phone ?></p>
-                    </div>
-                </div>
+                <img style="width: auto; height: 400px;" src="<?= $rest_obj->pic ?>" class="img-fluid rounded mx-auto d-block mh-30" alt="Responsive image">
+                <br></br>
+                <h1 class="text-center"><?= $rest_obj->name ?></h1>
+                <h3 class="text-center"><?= $rest_obj->description ?></h3>
+                <br></br>
+                <p class="text-center"><?= $rest_obj->address ?></p>
+                <p class="text-center"><?= $rest_obj->phone ?></p>
             <?php endforeach; ?>
-        </div>
+
         <?php echo(printFooter()); ?>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
