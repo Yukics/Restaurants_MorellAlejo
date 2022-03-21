@@ -38,13 +38,12 @@
     <body>
         <?php echo(printHeader()); ?>
         <?php echo(printNavbar()); ?>
-
         
-        
-        <div class="card-deck">
+        <br></br>
+        <div class="card-deck d-flex flex-row justify-content-around" style="width:90%; padding-left: 10%;">
             <?php foreach($obj_arr_rest as &$rest_obj): ?>
                 <div class="card">
-                    <img class="card-img-top img-fluid" src="<?= $rest_obj->pic ?>" alt="Card image cap" style="height:60%; overflow: hidden;">
+                    <img class="card-img-top img-fluid" src="<?= $rest_obj->pic ?>" alt="Card image cap" style="height:60%; width: max-content; background-position: center center; background-repeat: no-repeat; overflow: hidden;">
                     <div class="card-body">
                     <h5 class="card-title"><a href="/restaurant.php?name=<?= urlencode($rest_obj->name) ?>"><?= $rest_obj->name ?></a></h5>
                         <p class="card-text"><?= $rest_obj->description ?></p>
