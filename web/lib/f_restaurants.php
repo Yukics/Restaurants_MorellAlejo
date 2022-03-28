@@ -43,11 +43,13 @@
         //         "pic"=>"https://media-cdn.tripadvisor.com/media/photo-p/1b/d4/05/f6/genovese-pesto-de-albahaca.jpg"
         //     ]
         // );
+
         //Establishes conection
         $mysqli = connectDB();
         $query = "SELECT * From restaurants";
         $obj_arr_rest = array();
-        //If conection not stablished
+
+        //If conection is stablished
         if ($mysqli !== false){
             if ($resultado = $mysqli->query($query)) {
 
@@ -68,11 +70,10 @@
     function getRestaurant($name){      
 
         $mysqli = connectDB();
-        // $query = 'SELECT * From `restaurants` where `name`="Izakaya Mallorca"';
         $query = "SELECT * From `restaurants` where `name`=('$name')";
         $obj_arr_rest = array();
 
-        //If conection not stablished
+        //If conection is stablished
         if ($mysqli !== false){
             if ($resultado = $mysqli->query($query)) {
 

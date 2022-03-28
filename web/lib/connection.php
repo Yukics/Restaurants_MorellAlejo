@@ -10,7 +10,7 @@
 
         // Test connection
         if (mysqli_connect_errno()) {
-            printf("Falló la conexión: %s\n", mysqli_connect_error());
+            printf("Connection Failed: %s\n", mysqli_connect_error());
             return false;
         } else {
             return $mysqli;

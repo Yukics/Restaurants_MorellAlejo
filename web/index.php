@@ -37,8 +37,8 @@
         <?php echo(printHeader()); ?>
         <?php echo(printNavbar()); ?>
         
-        <br></br>
-        <div class="card-deck d-flex flex-row justify-content-around" style="width:90%; padding-left: 10%;">
+
+        <div class="card-deck d-flex flex-row justify-content-around" style="width:90%; padding-left: 10%; padding-bottom: 5%; padding-top: 5%">
             <?php foreach($obj_arr_rest as &$rest_obj): ?>
                 <div class="card">
                     <img class="card-img-top img-fluid" src="<?= $rest_obj->pic ?>" alt="Card image cap" style="height:60%; width: max-content; background-position: center center; background-repeat: no-repeat; overflow: hidden;">

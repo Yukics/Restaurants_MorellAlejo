@@ -18,8 +18,6 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous"> -->
-        <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
         <style>
             .img::before{
                 width: 400px;
@@ -32,17 +30,18 @@
         <?php echo(printHeader()); ?>
         <?php echo(printNavbar()); ?>
 
-        <br></br>
             <?php foreach($obj_arr_rest as &$rest_obj): ?>
-                <img style="width: auto; height: 400px;" src="<?= $rest_obj->pic ?>" class="img-fluid rounded mx-auto d-block mh-30" alt="Responsive image">
-                <br></br>
-                <h1 class="text-center"><?= $rest_obj->name ?></h1>
-                <h3 class="text-center"><?= $rest_obj->description ?></h3>
-                <br></br>
-                <p class="text-center"><?= $rest_obj->address ?></p>
-                <p class="text-center"><?= $rest_obj->phone ?></p>
-            <?php endforeach; ?>
+                <div style="padding-bottom: 5%; padding-top: 3%">
+                    <img style="width: auto; height: 400px;" src="<?= $rest_obj->pic ?>" class="img-fluid rounded mx-auto d-block mh-30" alt="Responsive image">
+                    <br></br>
+                    <h1 class="text-center"><?= $rest_obj->name ?></h1>
+                    <h3 class="text-center"><?= $rest_obj->description ?></h3>
+                    <br></br>
+                    <address class="text-center"><?= $rest_obj->address ?></address>
+                    <p class="text-center"><a href="tel:<?= trim($rest_obj->phone) ?>"><?= $rest_obj->phone ?></a></p>
+                </div>
 
+            <?php endforeach; ?>
         <?php echo(printFooter()); ?>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
