@@ -38,7 +38,7 @@
                     <h3 class="text-center"><?= $rest_obj->description ?></h3>
                     <br></br>
                     <address class="text-center"><?= $rest_obj->address ?></address>
-                    <p class="text-center"><a href="tel:<?= trim($rest_obj->phone) ?>"><?= $rest_obj->phone ?></a></p>
+                    <p class="text-center"><a href=<?php echo("tel:".str_replace(' ', '', $rest_obj->phone)); ?>><?= $rest_obj->phone ?></a></p>
                 </div>
 
             <?php endforeach; ?>
