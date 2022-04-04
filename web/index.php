@@ -1,12 +1,18 @@
 <?php
+    session_start();
     //Import classes and functions
-    require_once("class/restaurantClass.php");
+    require_once("class/c_restaurantClass.php");
     require_once("lib/f_restaurants.php");
 
     //Import components
     require_once("components/header.php");
     require_once("components/navbar.php");
     require_once("components/footer.php");
+
+    $username="";
+    if(isset($_SESSION["username"])){
+        $username=$_SESSION["username"];
+    }
 
 
     function console_log( $data ){
@@ -35,7 +41,7 @@
     </head>
     <body>
         <?php echo(printHeader()); ?>
-        <?php echo(printNavbar()); ?>
+        <?php echo(printNavbar($username)); ?>
         
 
         <div class="card-deck d-flex flex-row justify-content-around" style="width:90%; padding-left: 10%; padding-bottom: 5%; padding-top: 5%">

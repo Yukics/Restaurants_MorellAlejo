@@ -1,4 +1,5 @@
 <?php
+    session_start();
     //Import classes and functions
     // require_once("class/restaurantClass.php");
     require_once("lib/f_restaurants.php");
@@ -7,6 +8,11 @@
     require_once("components/header.php");
     require_once("components/navbar.php");
     require_once("components/footer.php");
+
+    $username="";
+    if($_SESSION["username"]){
+        $username=$_SESSION["username"];
+    }
 
     //Gets the array of object\restaurants
     $obj_arr_rest = getRestaurant(urldecode($_GET["name"]));
@@ -28,7 +34,7 @@
     </head>
     <body>
         <?php echo(printHeader()); ?>
-        <?php echo(printNavbar()); ?>
+        <?php echo(printNavbar($username)); ?>
 
             <?php foreach($obj_arr_rest as &$rest_obj): ?>
                 <div style="padding-bottom: 5%; padding-top: 3%">
