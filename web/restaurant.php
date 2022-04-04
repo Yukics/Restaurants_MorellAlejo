@@ -1,7 +1,6 @@
 <?php
     session_start();
     //Import classes and functions
-    // require_once("class/restaurantClass.php");
     require_once("lib/f_restaurants.php");
 
     //Import components

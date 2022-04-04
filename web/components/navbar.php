@@ -4,13 +4,24 @@ function printNavbar($user){
 
     //Depending if user is logged or not set Login or Logout
     if($user != ""){
-        $userLink =   '<li class="nav-item">
-                            <a class="nav-link h4" href="logout.php">Logout</a>
-                        </li>';
+        $userLink =   '<div class="ml-auto p-2">
+                        <li class="nav-item pt-2">
+                        <div class="dropdown">
+                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Logged in as ' . $user . ' 
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="logout.php">Logout</a>
+                            </div>
+                        </div>       
+                        </li></div>
+                        ';
     } else {
-        $userLink =   '<li class="nav-item">
-                            <a class="nav-link h4" href="login.php">Login</a>
-                        </li>' ;
+        $userLink =   '<div class="p-2"><li class="nav-item pt-2">
+                            <form action="login.php">
+                                <input type="submit" class="btn btn-primary" value="Login" />
+                            </form>      
+                        </li></div>' ;
     }
 
     return '
@@ -19,13 +30,18 @@ function printNavbar($user){
             <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link h4" href="/">Home <span class="sr-only">(current)</span></a>
-                    </li>'
+                <ul class="navbar-nav container-fluid">
+                    <div class="d-flex justify-content-between" style="width:100%;">
+                        <div class="p-2">
+                            <li class="nav-item active pt-1">
+                                <a class="nav-link h4" href="/">Home <span class="sr-only">(current)</span></a>
+                            </li>
+                        </div>'
                     .
                     $userLink
-                    . '</ul>
+                    . 
+                    '</div>
+                </ul>
             </div>
         </nav>
     ';
