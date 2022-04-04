@@ -1,6 +1,6 @@
 <?php
-    require_once __DIR__.'/../class/restaurantClass.php';
-    require_once 'connection.php';
+    require_once __DIR__.'/../class/c_restaurantClass.php';
+    require_once 'db_connection.php';
 
 
     // This function is supposed to get the top 5 restaurants and return it as an array of array(key=>value)
