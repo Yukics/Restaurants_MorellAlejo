@@ -34,7 +34,7 @@ CREATE TABLE `restaurants` (
     `address` text NOT NULL, 
     `phone` text NOT NULL, 
     `pic` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 INSERT INTO `restaurants` (`id`, `name`, `address`, `phone`, `description`, `pic`) VALUES 
 (1, 'Japo Santa Catalina', 'Carrer de Sant Magí, 25, 07013 Palma de Mallorca, Mallorca España\r\n', '+34 971 73 83 21', 'Japanese Food', 'https://media-cdn.tripadvisor.com/media/photo-s/1d/1d/ae/1c/carpaccio-rol.jpg'), 
@@ -42,6 +42,15 @@ INSERT INTO `restaurants` (`id`, `name`, `address`, `phone`, `description`, `pic
 (3, 'Izakaya Mallorca','Carrer dEspartero, 15, 07014 Palma de Mallorca, Mallorca España\r\n', '+34 871 03 76 33', 'Japo traditional food', 'https://media-cdn.tripadvisor.com/media/photo-s/1d/39/e8/cb/izakaya-mallorca.jpg'), 
 (4, 'FaBrick food & more','Calle San Magín 84, 07013 Palma de Mallorca, Mallorca España\r\n', '+34 610 89 06 21', 'Innovative cuisine', 'https://media-cdn.tripadvisor.com/media/photo-s/17/d0/c3/7a/fabrick-food-more.jpg'),
 (5, 'Pizzeria Los Dos Hermanos','Carrer de la Reina Maria Cristina, 61, 07004 Palma de Mallorca, Mallorca España\r\n', '+34 871 53 09 63', 'Italian Food', 'https://media-cdn.tripadvisor.com/media/photo-p/1b/d4/05/f6/genovese-pesto-de-albahaca.jpg');
+
+CREATE TABLE `users` (
+    `id` int NOT NULL,
+    `username` text NOT NULL,
+    `password` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+INSERT INTO `users` (`id`, `username`, `password`) VALUES
+(1, 'yuki', '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8');
 
 COMMIT;
 
