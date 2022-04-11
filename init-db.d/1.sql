@@ -46,11 +46,22 @@ INSERT INTO `restaurants` (`id`, `name`, `address`, `phone`, `description`, `pic
 CREATE TABLE `users` (
     `id` int NOT NULL,
     `username` text NOT NULL,
+    `name` text NOT NULL,
+    `surname` text NOT NULL,
+    `email` text NOT NULL,
     `password` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
-INSERT INTO `users` (`id`, `username`, `password`) VALUES
-(1, 'yuki', '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8');
+INSERT INTO `users` (`id`, `username`, `name`, `surname`, `email`, `password`) VALUES
+(1, 'yuki', 'yuki', '', 'yuki@admin.com',  '32250170a0dca92d53ec9624f336ca24'),
+/* Password 'pass123' with 'md5' */
+(2, 'admin', 'Administrator', '', 'admin@iesfbmoll.org', '3f28c9e5f49efe2ce08c056ec6ecc5d1'),
+/* Password 'Admin.1234' with 'md5' */
+(3, 'jsmith', 'John', 'Smith', 'jsmith@iesfbmoll.org', '25d55ad283aa400af464c76d713c07ad'),
+/* Password '12345678' with 'md5' */
+(4, 'pjohnson', 'Peter', 'Johnson', 'pjohnson@iesfbmoll.org', '81dc9bdb52d04dc20036dbd8313ed055');
+/* Password '1234' with 'md5' */
+
 
 COMMIT;
 

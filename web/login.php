@@ -2,7 +2,8 @@
     //Starts session if already logged in redirect to idnex.php
     session_start();
     if(isset($_SESSION['username'])) {
-        header("Location: http://localhost:8085/index.php");
+        header("refresh:5;url=login.php");
+        // header("Location: http://localhost:8085/index.php");
         die;
     }
 
@@ -11,21 +12,29 @@
     
     //Init var as redirect disabled
     $redirect = "";
+    //Init var as alert login failed disabled
+    $alert = "hidden";
 
     //Login logic on post request
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         // collect value of input field
         $username = $_POST['username'];
-        $password = hash("sha256",  $_POST['password']);
+        $password = hash("md5",  $_POST['password']);
 
-        //Check login strings, if exists on database returns username, else nothing
-        $_SESSION['username']=checkUser($username, $password);
-
-        //When set this litle js code redirects to index.php
-        $redirect = '<script type="text/javascript">
-                        window.location.href = "http://localhost:8085/index.php";
-                    </script>';
+        //Check login strings, if exists on database returns username and email, else nothing
+        $checkedUser=checkUser($username, $password);
+        if (is_null($checkedUser)){
+            //Enables login failed alert
+            $alert = "visible";
+        } elseif (sizeof($checkedUser) == 2) {
+            $_SESSION['username']=$checkedUser[0];
+            $_SESSION['email']=$checkedUser[1];            
+            //When set this litle js code redirects to index.php
+            $redirect = '<script type="text/javascript">
+                            window.location.href = "http://localhost:8085/index.php";
+                        </script>';
+        }
     }  
 ?>
 
@@ -37,7 +46,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <style>
             .login-container{
-                padding-top: 20%;
+                padding-top: 10%;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -67,6 +76,7 @@
                 padding: 1.5%;
                 border: none;
                 cursor: pointer;
+                margin-top: 15%;
             }
             .login-form .btnSubmit{
                 text-align: center;
@@ -74,6 +84,10 @@
                 color: #fff;
                 background-color: #0062cc;
             }
+            #alert{
+                visibility: <?php echo $alert; ?>
+            }
+        
         </style>
     </head>
     <body>  
@@ -92,6 +106,7 @@
                         <input type="submit" class="btnSubmit" value="Login" />
                     </div>
                 </form>
+                <div class="alert alert-danger" role="alert" id="alert">Login failed</div>
             </div>        
         </div>
 

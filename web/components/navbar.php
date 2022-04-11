@@ -1,6 +1,6 @@
 <?php
 
-function printNavbar($user){
+function printNavbar($user, $email){
 
     //Depending if user is logged or not set Login or Logout
     if($user != ""){
@@ -8,7 +8,7 @@ function printNavbar($user){
                         <li class="nav-item pt-2">
                         <div class="dropdown">
                             <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Logged in as ' . $user . ' 
+                                Email: ' . $email . ', Logged in as ' . $user . ' 
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <a class="dropdown-item" href="logout.php">Logout</a>

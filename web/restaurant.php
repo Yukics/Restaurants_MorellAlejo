@@ -9,8 +9,10 @@
     require_once("components/footer.php");
 
     $username="";
+    $email="";
     if(isset($_SESSION["username"])){
         $username=$_SESSION["username"];
+        $email=$_SESSION["email"];
     }
 
     //Gets the array of object\restaurants
@@ -33,7 +35,7 @@
     </head>
     <body>
         <?php echo(printHeader()); ?>
-        <?php echo(printNavbar($username)); ?>
+        <?php echo(printNavbar($username, $email)); ?>
 
             <?php foreach($obj_arr_rest as &$rest_obj): ?>
                 <div style="padding-bottom: 5%; padding-top: 3%">

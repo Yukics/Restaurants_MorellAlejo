@@ -10,8 +10,10 @@
     require_once("components/footer.php");
 
     $username="";
+    $email="";
     if(isset($_SESSION["username"])){
         $username=$_SESSION["username"];
+        $email=$_SESSION["email"];
     }
 
 
@@ -41,7 +43,7 @@
     </head>
     <body>
         <?php echo(printHeader()); ?>
-        <?php echo(printNavbar($username)); ?>
+        <?php echo(printNavbar($username, $email)); ?>
         
 
         <div class="card-deck d-flex flex-row justify-content-around" style="width:90%; padding-left: 10%; padding-bottom: 5%; padding-top: 5%">

@@ -1,5 +1,4 @@
 <?php
-
     //Defining Restaurant as Class
     class Restaurant {
         public $name;
@@ -16,5 +15,4 @@
             $this->pic = $pic;
         }
     }
-
 ?>
