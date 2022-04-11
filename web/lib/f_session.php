@@ -11,8 +11,7 @@
 
         //Some error handling
         if (!$result) {
-            $message  = 'ERROR: ' . mysql_error() . "\n";
-            die($message);
+            printf("Errormessage: %s\n", $mysqli->error);
             return null;
         }
 
