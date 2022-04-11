@@ -2,8 +2,7 @@
     //Starts session if already logged in redirect to idnex.php
     session_start();
     if(isset($_SESSION['username'])) {
-        header("refresh:5;url=login.php");
-        // header("Location: http://localhost:8085/index.php");
+        header("Location: http://localhost:8085/index.php");
         die;
     }
 

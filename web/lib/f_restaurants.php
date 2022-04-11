@@ -2,7 +2,6 @@
     require_once __DIR__.'/../class/c_restaurantClass.php';
     require_once 'db_connection.php';
 
-
     // This function is supposed to get the top 5 restaurants and return it as an array of array(key=>value)
     function getRestaurants(){
         //Top 5 restaurants from Task1
@@ -51,15 +50,15 @@
 
         //If conection is stablished
         if ($mysqli !== false){
-            if ($resultado = $mysqli->query($query)) {
+            if ($result = $mysqli->query($query)) {
 
                 // /* get objects array */
-                while ($obj = $resultado->fetch_object()) {
+                while ($obj = $result->fetch_object()) {
                     array_push($obj_arr_rest, new Restaurant($obj->name, $obj->address, $obj->phone, $obj->description, $obj->pic));
                 }
                 return $obj_arr_rest;
                 // /* docs things, closing stuff */
-                $resultado->close();
+                $result->close();
             }
             $mysqli->close();
         } else {
@@ -75,15 +74,15 @@
 
         //If conection is stablished
         if ($mysqli !== false){
-            if ($resultado = $mysqli->query($query)) {
+            if ($result = $mysqli->query($query)) {
 
                 // /* get objects array */
-                while ($obj = $resultado->fetch_object()) {
+                while ($obj = $result->fetch_object()) {
                     array_push($obj_arr_rest, new Restaurant($obj->name, $obj->address, $obj->phone, $obj->description, $obj->pic));
                 }
                 
                 // /* docs things, closing stuff */
-                $resultado->close();
+                $result->close();
                 return $obj_arr_rest;
             }
             $mysqli->close();

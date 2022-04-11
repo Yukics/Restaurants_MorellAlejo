@@ -1,5 +1,6 @@
 <?php
     function connectDB(){
+        //Connection parameters, might be on an .env file or vault
         $servername = "db";
         $username = "yuki";
         $password = "pass123";

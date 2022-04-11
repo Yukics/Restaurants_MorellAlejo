@@ -4,6 +4,8 @@
     function checkUser($user, $hashedPass){
         //Establishes conection
         $mysqli = connectDB();
+
+        //Query used to check login parameters
         $query = sprintf("SELECT username, email FROM users WHERE username='%s' AND password='%s'", $user, $hashedPass);
         
         //Executes query
@@ -24,7 +26,7 @@
         //End process
         $result->close();
 
-        //Return user check
+        //Return user checkData if user can login or null if not
         if(isset($user) && isset($email)){
             return array($user,$email);
         } else {
